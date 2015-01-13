@@ -1,0 +1,280 @@
+blanco = #FFF
+gris_light = #EEE
+azul = #0EBECC
+azul_dark = #4C6A8D
+azul_medium = #00A2E6
+rosa = #F8555E
+fusia = #EB0F3E
+fusia_light = #FF0F3E
+rosa_dark = #AB0B2D
+
+body
+	background gris_light
+	font-family 'Roboto', sans-serif
+
+.container
+	.new
+		display inline-block
+		margin-bottom 2em
+		overflow hidden
+		width 49%
+		.autor
+			margin 0
+			width 15% 
+			img
+				border-radius 50%
+				height 80px
+				width 80px
+			
+		.content
+			background blanco
+			border-bottom 2px solid azul
+			position relative
+			width 80%
+			.description
+				margin 1em	 auto
+				width 95%
+			
+			.options
+				width 100%
+				a
+					font-size 2em
+					text-decoration none
+				.comments
+					color #00C2C4
+					margin-left 0.5em
+				.like
+					color azul
+					margin 0 1em
+				.dislike
+					color rosa
+					
+				&:before
+					border-color transparent black transparent transparent
+					border-style solid
+					border-width 15px
+					content ''
+					left -20px
+					position absolute
+					top 0px				
+			.timesince
+				color gray
+				text-align right
+				width 98%
+					
+			.user-actions
+				background black
+				color white
+				padding 0.5em
+				text-align center
+				a
+					color white
+					text-decoration none
+		
+.down-header
+	margin-bottom 2em
+	margin-top 5em
+	overflow hidden
+	
+	.profile-info
+		background azul_medium
+		color white
+		position relative
+		text-align center
+		width 20%
+		
+		h3
+			text-transform capitalize
+		
+		.photo
+			background url("../images/mavatar.jpg")
+			border 4px solid azul_dark
+			border-radius 50%
+			box-shadow -10px 10px azul_dark,-20px 20px azul_dark,-30px 30px azul_dark,-40px 40px azul_dark,-50px 50px azul_dark,-60px 60px azul_dark,-70px 70px azul_dark,-80px 80px azul_dark,-90px 90px azul_dark,-100px 100px azul_dark,-110px 110px azul_dark,-120px 120px azul_dark,-130px 130px azul_dark
+			margin 1em
+			height 200px
+			width 200px
+			
+	.publish
+		margin-top 2em
+		width 65%
+		input
+			border-top 1px solid #DDD
+			border-left 2px solid #DDD
+			display block
+			margin-bottom 1em
+			outline none
+			padding 1em
+			width 90%
+			&:focus
+				outline 2px solid azul
+			
+		.publish-button
+			background fusia
+			border 0
+			box-shadow inset 0 -5px rosa_dark
+			color white
+			font-size 1.5em
+			margin-bottom 4px
+			padding  .7em 
+			
+			.fa
+				margin-left 10px
+			&:hover
+				background fusia_light
+			&:active
+				margin-top 4px 
+				margin-bottom 0
+				box-shadow none
+	.quote
+		background blanco
+		font-family 'Roboto'
+		font-size 18px
+		font-style italic
+		color black
+		margin-top 1em
+		padding 0.5em
+		position relative
+		text-decoration none
+		text-align center		
+		width 70%
+		
+		a
+			float right
+			color #555
+			position absolute
+			bottom -30px
+			right 0
+			text-decoration none
+			text-shadow 1px 1px 10px white
+		b
+			display none
+		i
+			color gray
+			position absolute
+			top -10px
+			left 10px
+		&:before
+			content ''
+			border-width 25px
+			border-style solid
+			border-color blanco transparent transparent transparent
+			position absolute
+			bottom -35px
+			right 10px
+			
+.left
+	float left
+
+.navigation
+	background black
+	color white
+	left 0
+	overflow hidden
+	position fixed
+	top 0
+	z-index 999
+	width 100%
+	
+	.logo
+		img
+			margin 0
+			height 50px
+			width 50px
+
+	.search-logo
+		width 50%
+		.search
+			position relative
+			overflow hidden
+			input
+				border 0
+				margin 1em
+				padding 1em
+				outline none
+				width 90%
+				&:focus
+					box-shadow 0 0 2px 2px azul_medium inset
+					
+			.search-icon
+				color gray
+				font-size 2em
+				position absolute
+				right 20px
+				top 0.8em
+	
+	.tabs
+		list-style none
+		height 3em
+		margin 0.5em
+		position relative
+		li
+			border 0
+			display inline-block
+			padding 1em 2em
+			
+			&:hover
+				border-top 0.4em solid fusia
+				cursor pointer
+
+				
+		.actual
+			border-top 0.4em solid fusia				
+	
+.right
+	float right
+	
+
+@media screen and (max-width 480px)
+	.container
+		.new
+			display inline-block
+			margin-bottom 2em
+			overflow hidden
+			width 100%
+			.autor
+				display none
+				
+			.content
+				margin 0 1em
+				position relative
+				width 95%
+				.description
+					margin 1em	 auto
+					width 95%
+				
+				.options
+					width 100%
+						
+					&:before
+						content none
+
+	.down-header
+		.profile-info
+			display none
+		.publish
+			width 98%
+			.publish-button 
+				font-size 1.2em
+		.quote
+			display none
+	
+	.navigation
+		.logo
+			display none
+		.search-logo
+			width 100%
+		.tabs
+
+			padding-left 0
+			li
+				padding 1em 
+
+@media screen and (max-width 768px)
+	.down-header 
+		.profile-info
+			width 30%
+	
+	.navigation
+		.search-logo
+			display none

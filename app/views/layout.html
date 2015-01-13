@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>{% block title %}Panzi{% endblock title %}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	{% block stylesheets %}	
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+		<link rel="stylesheet"  href="css/hover-min.css">	
+		<link rel="stylesheet" href="css/elusive-webfont.css">
+	{% endblock stylesheets %}
+</head>
+<body>
+	{% block content %}
+		
+	{% endblock content %}
+	{% block javascript %}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/code.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	{% endblock javascript %}
+</body>
+</html>

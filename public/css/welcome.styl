@@ -1,0 +1,171 @@
+rosa = #E6344A
+rosa_dark = #C92E41
+rosa_light = #F35E75
+azul = #04779B
+azul_dark = #0B5379
+verde = #2FCC00
+
+body 
+	background white
+	font-family 'Roboto',sans-serif
+	perspective 1px
+	transform-style preserve-3d
+	overflow-y scroll
+	overflow-x hidden
+	
+
+.welcome
+	background  url(/images/cherry.jpg) no-repeat center center fixed 
+	background-size cover
+	box-shadow inset 0 -7px 7px -7px rgba(0,0,0,0.7)
+	box-sizing border-box
+	position relative
+	transform-style inherit	
+	width 100%
+	
+	.layer 
+		background-color rgba(0, 0, 0,.5)
+		color white
+		min-height 100vh
+		padding 25vh 10%
+		text-align center
+		text-transform capitalize
+		
+		h1
+			color white
+			font-size 5em
+			font-family 'Roboto', sans-serif
+			text-align center
+			text-shadow 0 5px 5px #333
+			text-transform uppercase
+
+.avatars
+	
+	color white
+	padding 0
+	
+	.blue
+		border 1px solid azul
+		background azul
+		position relative
+		ul
+			list-style none
+			padding 10em 4em 
+			li
+				background  url('../images/mavatar.jpg') no-repeat
+				border-radius 50%
+				border 8px solid azul_dark
+				cursor pointer
+				display inline-block
+				height 200px
+				margin 0 1em
+				position relative
+				width 200px						
+
+			.avatar_1
+				background-position -130px -160px
+			.avatar_2
+				background-position -395px -160px
+			.avatar_3
+				background-position -670px -160px
+			.avatar_4
+				background-position -395px -440px
+			.avatar_5
+				background-position -670px -710px
+				
+		&:before
+			content ''
+			border-width 2em
+			border-style solid
+			border-color azul transparent transparent transparent
+			position absolute 
+			bottom -62px
+			left 45%
+			z-index 999
+		
+	.pink
+		border 1px solid rosa
+		background rosa
+		position relative
+		ul 
+			list-style none
+			padding 10em 3em
+			li 
+				background url('../images/wavatar.jpg') no-repeat
+				border 8px solid rosa_dark
+				border-radius 50%
+				cursor pointer
+				display inline-block
+				margin 0 1em
+				width 200px
+				height 200px
+				
+			.avatar_6
+				background-position -60px -260px
+			.avatar_7
+				background-position -290px -260px
+			.avatar_8
+				background-position -760px -260px
+			.avatar_9
+				background-position -520px -260px
+			.avatar_10
+				background-position -520px -580px
+		&:before
+			content ''
+			border-width 2em
+			border-style solid
+			border-color rosa transparent transparent transparent
+			position absolute 
+			bottom -45px
+			left 45%
+			z-index 999
+				
+.buttons
+	background #555
+	margin-top -1em
+	overflow hidden
+	position relative
+		
+	.next
+		color white
+		background verde
+		border 0
+		font-size 1.5em
+		margin-left 2em
+		padding .7em
+		position relative
+		text-decoration none
+		
+		&:before
+			content ''
+			border-width 15px
+			border-style solid 
+			border-color transparent verde transparent transparent
+			position absolute
+			top 25%
+			left -25px
+		
+.left
+	float left
+	
+.right
+	float right
+		
+@media screen and (max-width: 768px)
+	.avatars
+		.blue
+			ul 
+				padding 2em 0
+				li
+					margin 0 auto
+					
+		.pink
+			ul 
+				padding 2em 0
+				li
+					margin 0 auto
+					
+	.welcome
+		.layer
+			h1
+				font-size 3em

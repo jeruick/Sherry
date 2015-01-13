@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Te damos la bienvenida!{% endblock title %}
+	
+{% block stylesheets %}
+	<link rel="stylesheet" href="css/welcome.css">
+	{% parent %}
+{% endblock stylesheets %}
+
+{% block content %}
+	<section class="welcome">
+		<div class="layer">
+			<h1>Bienvenido a Sherry</h1>
+		</div>
+	</section>
+	<div class="avatars">
+		<div class="blue">
+			<ul class="men">
+			{% for i in [1,2,3,4,5] %}
+				<li class="avatar_{{i}} pop"><i class="fa"></i></li>
+			{% endfor %}
+			</ul>	
+		</div>
+		<div class="pink">
+			<ul class="women">
+			{% for i in [6,7,8,9,10] %}
+				<li class="avatar_{{i}} pop"><i class="fa"></i></li>
+			{% endfor %}
+			</ul>
+		</div>
+		
+	</div>
+	<input type="hidden" id="user-id" value="{{user._id}}">
+	<div class="buttons">
+		<a class="next right" href="#">Siguiente <i class="fa fa-chevron-down"></i></a>
+	</div>
+
+{% endblock content %}
+	
