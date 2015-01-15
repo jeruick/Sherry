@@ -7,6 +7,7 @@ module.exports = function (mongoose) {
 		password : String,
 		nickname : String,
 		friends : Schema.Types.Mixed,
+		photo: String
 		
 	});
 	UserSchema.plugin(customFields);

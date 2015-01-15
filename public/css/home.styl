@@ -87,10 +87,8 @@ body
 			text-transform capitalize
 		
 		.photo
-			background url("../images/mavatar.jpg")
 			border 4px solid azul_dark
 			border-radius 50%
-			box-shadow -10px 10px azul_dark,-20px 20px azul_dark,-30px 30px azul_dark,-40px 40px azul_dark,-50px 50px azul_dark,-60px 60px azul_dark,-70px 70px azul_dark,-80px 80px azul_dark,-90px 90px azul_dark,-100px 100px azul_dark,-110px 110px azul_dark,-120px 120px azul_dark,-130px 130px azul_dark
 			margin 1em
 			height 200px
 			width 200px
@@ -224,6 +222,21 @@ body
 .right
 	float right
 	
+.el-2x 
+	font-size 2em
+.el-3x 
+	font-size 3em
+.el-4x
+	font-size 4em
+
+@media screen and (max-width 768px)
+	.down-header 
+		.profile-info
+			width 30%
+	
+	.navigation
+		.search-logo
+			display none
 
 @media screen and (max-width 480px)
 	.container
@@ -269,12 +282,3 @@ body
 			padding-left 0
 			li
 				padding 1em 
-
-@media screen and (max-width 768px)
-	.down-header 
-		.profile-info
-			width 30%
-	
-	.navigation
-		.search-logo
-			display none

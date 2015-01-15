@@ -97,19 +97,11 @@ $(document).ready(function() {
 		event.preventDefault();
 		var self = this;
 		$('.avatars li i').each(function(index, el) {
-
-				if ($(el).parent().attr('class') === $(self).attr('class'))
-				{
-					$(el).addClass('fa-check-circle');
-					sel_avatar = true;
-					avatar_position = $(self).css('background-position');
-				}
-				else
-				{
-
-					$(el).removeClass('fa-check-circle');
-				}
+			$(el).removeClass('fa-check-circle');
 		});
+		$(self).children('i').addClass('fa-check-circle');
+		sel_avatar = true;
+		avatar_position = $(self).attr('class');
 	});
 
 	$('.next').click(function(event) {

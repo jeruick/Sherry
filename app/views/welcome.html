@@ -11,24 +11,20 @@
 	<section class="welcome">
 		<div class="layer">
 			<h1>Bienvenido a Sherry</h1>
+			<i class="el-icon-iphone-home"></i>
+			<div>
+				<h2>escoge tu avatar</h2>	
+				<i class="el-icon-chevron-down"></i>
+			</div>
+			
 		</div>
+
 	</section>
 	<div class="avatars">
-		<div class="blue">
-			<ul class="men">
-			{% for i in [1,2,3,4,5] %}
-				<li class="avatar_{{i}} pop"><i class="fa"></i></li>
-			{% endfor %}
-			</ul>	
-		</div>
-		<div class="pink">
-			<ul class="women">
-			{% for i in [6,7,8,9,10] %}
-				<li class="avatar_{{i}} pop"><i class="fa"></i></li>
-			{% endfor %}
-			</ul>
-		</div>
-		
+		<ul>
+			<li class="man"><i class="fa"></i><img src="images/man.jpg" alt=""></li>
+			<li class="men"><i class="fa"></i><img src="images/men.jpg" alt=""></li>
+		</ul>		
 	</div>
 	<input type="hidden" id="user-id" value="{{user._id}}">
 	<div class="buttons">

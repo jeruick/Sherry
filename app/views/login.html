@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}Bienvenido a Sherry{% endblock title %}
+{% block title %}Bienvenido a sherry{% endblock title %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="css/style.css">
 	{% parent %}
@@ -8,41 +8,44 @@
 	
 
 {% block content %}
-	<div class="pre-loader"></div>
-	<header>
-		<a class="btn-registrate float" href="#"><i class="el-icon-edit"></i> Registrate</a>
-		<a href="#" class="btn-login ocultar"><i class="fa fa-sign-in "></i> Login</a>
-	</header>
-	<div class="container">
-		<div class="login">
-			<form action="/user/login" method="POST">
-				<div>
-					<input type="email" name="email" placeholder="example@mail.com" required>
-					<i class="el-icon-torso user-icon"></i>	
-				</div>
-				
-				<div>
-					<input type="password" name="password" placeholder="password" required>
-					<i class="el-icon-lock password-icon"></i>
-				</div>
+	<div class="body">
+		<div class="pre-loader"></div>
+		<header>
+			<a class="btn-registrate float" href="#"><i class="el-icon-edit"></i> Registrate</a>
+			<a href="#" class="btn-login ocultar"><i class="fa fa-sign-in "></i> Login</a>
+		</header>
+		<div class="container">
+			<div class="login">
+				<form action="/user/login" method="POST">
+					<div>
+						<input type="email" name="email" placeholder="example@mail.com" required>
+						<i class="el-icon-torso user-icon"></i>	
+					</div>
+					
+					<div>
+						<input type="password" name="password" placeholder="password" required>
+						<i class="el-icon-lock password-icon"></i>
+					</div>
 
-				<button type="submit" class="grow"><i class="fa fa-sign-in"></i> Entrar</button>
+					<button type="submit" class="grow"><i class="fa fa-sign-in"></i> Entrar</button>
 
-				<p class="red">{{error}}</p>
-			</form>
+					<p class="red">{{error}}</p>
+				</form>
+			</div>
+			<div class="registro ocultar">
+				<form action="/user/new" method="POST">
+					<input id="name" name="name" type="text" placeholder="Nombre completo" required>
+					<input id="email" name="email" type="text" placeholder="example@mail.com"required>
+					<p class="email-error"></p>
+					<input id="password" name="password" type="password" placeholder="password"required>
+					<input id="nickname" name="nickname" type="text" placeholder="Nickname"required>
+					<p class="nickname-error"></p>
+					<button  type="submit"><i class="el-icon-ok-circle"></i>Enviar</button>
+				</form>
+			</div>	
+			
 		</div>
-		<div class="registro ocultar">
-			<form action="/user/new" method="POST">
-				<input id="name" name="name" type="text" placeholder="Nombre completo" required>
-				<input id="email" name="email" type="text" placeholder="example@mail.com"required>
-				<p class="email-error"></p>
-				<input id="password" name="password" type="password" placeholder="password"required>
-				<input id="nickname" name="nickname" type="text" placeholder="Nickname"required>
-				<p class="nickname-error"></p>
-				<button  type="submit"><i class="el-icon-ok-circle"></i>Enviar</button>
-			</form>
-		</div>	
-		
+
 	</div>
 {% endblock content %}
 

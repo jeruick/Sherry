@@ -20,8 +20,7 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 				friends : null,
 				photo: null
 			});
-			debugger;
-			user.customField('comments', false);
+			
 
 			user.save(function(error, newuser) {
 			  
@@ -51,13 +50,15 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			
 			var email = fields.email;
 			var password = fields.password;
-
+			
 			db.User.findOne({email: email}, function(error, user) {
+				debugger;
 			  if (user)
 			  {
 
 			  	if(bcrypt.compareSync(password, user.password))
 			  	{
+			  		debugger;
 			  		req.session.user = user;	
 			  		return res.redirect('/home');	
 			  	}
@@ -65,6 +66,7 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			  } 
 			  else
 			  {
+			  	debugger;
 			  	console.log(error);
 			  	return res.redirect('/?error=true')
 			  } 
@@ -76,7 +78,11 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	});
 
 	server.get('/home',function (req, res){
-		res.render('home',{user: req.session.user});
+		db.User.findById(req.session.user._id, function (err, user) {
+			var position = user.customField('position');
+			return res.render('home',{user: req.session.user, position: position});	
+		})
+		
 	});
 
 	function isLoggedIn (req, res, next) {
@@ -157,12 +163,13 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 		}
 	});
 
-	server.get('/avatar-selected/:pos', function  (req, res) {
-		debugger;
+	server.get('/avatar-selected/:image', function  (req, res) {
+		
 		db.User.findById(req.session.user._id,  function  (err, user) {
+			debugger;
 			if (user) 
 			{
-				user.customField('position', req.params.pos);
+				user.photo = req.params.image + '.jpg';
 				user.save();
 				req.session.user = user;
 				return res.redirect('/home');
