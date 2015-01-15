@@ -1,5 +1,4 @@
 module.exports = function (mongoose) {
-	var customFields = require('mongoose-custom-fields');
 	var Schema = mongoose.Schema;
 	var UserSchema = new Schema({
 		name : String,
@@ -10,7 +9,6 @@ module.exports = function (mongoose) {
 		photo: String
 		
 	});
-	UserSchema.plugin(customFields);
 
 	return mongoose.model('User', UserSchema);
 }

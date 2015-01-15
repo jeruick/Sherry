@@ -5,7 +5,6 @@ var express = require('express.io'),
 	fs = require('fs'),
 	bcrypt = require('bcrypt'),
 	session = require('express-session');
-var customFields = require('mongoose-custom-fields');
 
 	
 var server = express();

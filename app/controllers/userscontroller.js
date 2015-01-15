@@ -76,8 +76,7 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 
 	server.get('/home',function (req, res){
 		db.User.findById(req.session.user._id, function (err, user) {
-			var position = user.customField('position');
-			return res.render('home',{user: req.session.user, position: position});	
+			return res.render('home',{user: req.session.user});	
 		})
 		
 	});
