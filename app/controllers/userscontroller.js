@@ -52,13 +52,11 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			var password = fields.password;
 			
 			db.User.findOne({email: email}, function(error, user) {
-				debugger;
 			  if (user)
 			  {
 
 			  	if(bcrypt.compareSync(password, user.password))
 			  	{
-			  		debugger;
 			  		req.session.user = user;	
 			  		return res.redirect('/home');	
 			  	}
@@ -66,7 +64,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			  } 
 			  else
 			  {
-			  	debugger;
 			  	console.log(error);
 			  	return res.redirect('/?error=true')
 			  } 
@@ -166,7 +163,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	server.get('/avatar-selected/:image', function  (req, res) {
 		
 		db.User.findById(req.session.user._id,  function  (err, user) {
-			debugger;
 			if (user) 
 			{
 				user.photo = req.params.image + '.jpg';
