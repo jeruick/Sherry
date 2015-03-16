@@ -2,10 +2,22 @@ var user_error, sel_avatar = false;
 var avatar_position;
 
 $(window).load(function() {
-	$(".pre-loader").fadeOut("slow");;
+	$(".pre-loader").fadeOut("slow");
 });
 
 $(document).ready(function() {
+	$("#my-awesome-dropzone").dropzone({ 
+		url: "/upload-photo" ,
+		paramName: "file", // The name that will be used to transfer the file
+	  	maxFilesize: .5, // MB
+	  	maxFiles: 1,
+	  	uploadMultiple: false,
+	  	accept: function  (file, done) {
+	  		done();
+	  	}
+
+
+	});
 	window.io = io.connect();
 
 	io.on('connect', function  (socket) {

@@ -5,49 +5,13 @@ azul = #04779B
 azul_dark = #0B5379
 verde = #2FCC00
 
-body 
+body,html 
 	background white
 	font-family 'Roboto',sans-serif
 	perspective 1px
 	transform-style preserve-3d
-	overflow-y scroll
-	overflow-x hidden
-	
-
-.welcome
-	background  url(/images/cherry.jpg) no-repeat center center fixed 
-	background-size cover
-	box-shadow inset 0 -7px 7px -7px rgba(0,0,0,0.7)
-	box-sizing border-box
-	position relative
-	transform-style inherit	
-	width 100%
-	
-	.layer 
-		background-color rgba(0, 0, 0,.5)
-		color white
-		min-height 100vh
-		padding 25vh 10%
-		text-align center
-		text-transform capitalize
-		
-		div
-			position absolute
-			bottom 0
-			left 0
-			text-align center
-			width 100%
-		h1
-			color white
-			font-size 5em
-			font-family 'Roboto', sans-serif
-			text-align center
-			text-shadow 0 5px 5px #333
-			text-transform uppercase
-		i 
-			cursor pointer
-			font-size 3em
-		
+	overflow hidden
+			
 			
 .avatars
 	
@@ -97,12 +61,54 @@ body
 			position absolute
 			top 25%
 			left -25px
+			
+.dragover-form
+	background orange
 		
 .left
 	float left
 	
 .right
 	float right
+
+.welcome
+	background  url(/images/coloredpencils.jpg) no-repeat center center fixed 
+	background-size cover
+	box-shadow inset 0 -7px 7px -7px rgba(0,0,0,0.7)
+	box-sizing border-box
+	position relative
+	transform-style inherit	
+	width 100%
+	
+	.layer 
+		background-color rgba(0, 0, 0,.5)
+		color white
+		min-height 100vh
+		padding 25vh 10%
+		text-align center
+		text-transform capitalize
+		
+		.profile-photo
+			margin-top 5em
+			.dropzone
+				background rgba(0,0,0,.7) url(../images/upload.png) no-repeat 90% center
+				background-size 20%
+				border 2px dotted gray
+				color white
+				margin 0 auto
+				width 70%
+		
+	
+		h1
+			color rosa
+			font-size 7em
+			font-family 'League Gotic'
+			text-align center
+			text-shadow 0 5px 5px #555
+			
+		i 
+			cursor pointer
+			font-size 3em
 		
 @media screen and (max-width: 768px)
 	.avatars
@@ -122,3 +128,6 @@ body
 		.layer
 			h1
 				font-size 3em
+			.profile-photo
+				.dropzone
+					width 100%

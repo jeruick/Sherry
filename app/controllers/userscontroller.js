@@ -89,21 +89,20 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 		next();
 	}
 
-	server.post('/upload', function (req, res){
-
+	server.post('/upload-photo', function (req, res){
+		var file_route;
 		var form = new formidable.IncomingForm();
-
 	   form.parse(req, function (err, fields, files) {
-	   		
 	   		var old_path = files.file.path,
 	           	file_size = files.file.size,
 	           	file_ext = files.file.name.split('.').pop(),
 	           	index = old_path.lastIndexOf('/') + 1,
 	           	file_name = old_path.substr(index),
-	           	new_path = path.join(process.env.PWD, '/uploads/', req.session.user.nickname ,file_name + '.' + file_ext);
-	        
+	           	new_path = path.join(process.env.PWD, '/public/uploads/', req.session.user.nickname ,file_name + '.' + file_ext);
+
+	           	file_route = 'uploads/' + req.session.user.nickname + '/' + file_name + '.' + file_ext; 
 	        fs.readFile(old_path, function(err, data) {
-	        	
+	        			
 	                    fs.writeFile(new_path, data, function(err) {
 	                        fs.unlink(old_path, function(err) {
 	                            if (err) {
@@ -112,6 +111,17 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	                            } else {
 	                                res.status(200);
 	                                res.json({'success': true});
+	                    
+	                                db.User.findById(req.session.user._id, function (err, user) {
+	                                	if (err) throw(err);
+	                                	if (!err && user != null )
+	                                	{
+	                                		user.photo = file_route;	
+	                                		user.save();
+	                                		return true;
+	                                	}
+	                                	
+	                                })
 	                            }
 	                        });
 	                    });
@@ -171,6 +181,11 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			}
 			
 		});
+	});
+
+	server.post('/target', function  (req, res) {
+		debugger;
+		console.log('entre');
 	});
 
 }

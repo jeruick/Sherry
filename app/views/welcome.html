@@ -4,32 +4,27 @@
 	
 {% block stylesheets %}
 	<link rel="stylesheet" href="css/welcome.css">
+	<link rel="stylesheet" href="css/dropzone.css">
 	{% parent %}
+
 {% endblock stylesheets %}
 
 {% block content %}
 	<section class="welcome">
 		<div class="layer">
 			<h1>Bienvenido a Sherry</h1>
-			<i class="el-icon-iphone-home"></i>
-			<div>
-				<h2>escoge tu avatar</h2>	
-				<i class="el-icon-chevron-down"></i>
+			<div class="profile-photo">
+				<div id="my-awesome-dropzone" action="/upload-photo" class="dropzone"></div>
 			</div>
-			
 		</div>
 
 	</section>
-	<div class="avatars">
-		<ul>
-			<li class="man"><i class="fa"></i><img src="images/man.jpg" alt=""></li>
-			<li class="men"><i class="fa"></i><img src="images/men.jpg" alt=""></li>
-		</ul>		
-	</div>
-	<input type="hidden" id="user-id" value="{{user._id}}">
-	<div class="buttons">
-		<a class="next right" href="#">Siguiente <i class="fa fa-chevron-down"></i></a>
-	</div>
+
 
 {% endblock content %}
+{% block javascript %}
+	{% parent %}
+	<script src="js/dropzone.js"></script>
+	
+{% endblock javascript %}
 	
