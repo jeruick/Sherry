@@ -20,7 +20,7 @@ server.engine('html', swig.renderFile);
 server.set('view engine', 'html' );
 server.set('views', __dirname + '/app/views');
 server.use(express.static('./public'));
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
 server.use(session({
 	secret: 'ssshhh',

@@ -5,8 +5,14 @@ var homecontroller = function (server){
 	server.get('/', function  (req, res) {
 		if (req.session.error) 
 		{
+			
 			req.session.error = null;
 			return res.render('login.html', {error: 'usuario o contraseña incorrecta'});
+		}
+		if (req.session.user)
+		{
+
+			return res.redirect('/home');
 		}
 
 		 return res.render('login.html');
@@ -17,8 +23,9 @@ var homecontroller = function (server){
 	});
 
 	server.get('/chat', function (req, res){
-		return res.render('chat');
+		return res.render('chat', {user: req.session.user});
 	});
+
 
 
 

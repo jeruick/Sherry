@@ -14,8 +14,11 @@
     {% include "navigation.html" %}
 	
     <div class="row chat-container">
-    	<div class="col l4 m4 hide-on-small-only connected">
-    		<ul class="collection">
+		<input class="hide-on-large-only" type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
+	  	<label class="hide-on-large-only" for="drawer-toggle" id="drawer-toggle-label"></label>  
+    	<div class="connected">  	      	
+    		<ul class="collection drawer" >
+
     		  <li class="collection-item avatar">
     		    <img src="images/logo.png" alt="" class="circle">
     		    <span class="title">Title</span>
@@ -83,8 +86,34 @@
     		</ul>
     		          
     	</div>
-    	<div class="col l8 m8 s12 chat-panel">
-    		<div class="input-field writter">
+    	<div class="chat-panel" >
+    		<div class="messages">
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    			<div class="message-item">
+    				<img class="user-photo" src="{{user.photo}}" alt="">
+    				<span class="message">Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?</span>
+    			</div>
+    		</div>
+    		<div class="input-field writter ">
     		  <i class="mdi-editor-mode-edit prefix"></i>
     		  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
     		  <label for="icon_prefix2">¿Tienes algo que compartir?</label>
