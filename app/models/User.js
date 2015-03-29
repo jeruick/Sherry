@@ -4,7 +4,7 @@ module.exports = function (mongoose) {
 		name : String,
 		email : String,
 		password : String,
-		nickname : String,
+		username : String,
 		friends : Schema.Types.Mixed,
 		photo: String
 		

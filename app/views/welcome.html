@@ -16,15 +16,18 @@
 			<div class="profile-photo">
 				<div id="my-awesome-dropzone" action="/upload-photo" class="dropzone"></div>
 			</div>
+			<a class="btn-next el el-ok" href="/home" >Siguiente</a>	
 		</div>
-
+		
 	</section>
+
 
 
 {% endblock content %}
 {% block javascript %}
 	{% parent %}
 	<script src="js/dropzone.js"></script>
+	<script src="js/dropzone-handler.js"></script>
 	
 {% endblock javascript %}
 	

@@ -7,7 +7,7 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 		form.parse(req, function  (err, fields, files) {
 			var email = fields.email;
 			var name = fields.name;
-			var nickname = fields.nickname;
+			var username = fields.username;
 			var password = fields.password;
 			var salt = bcrypt.genSaltSync(10);
 			var hash = bcrypt.hashSync(password, salt);
@@ -16,7 +16,7 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 				name : name,
 				email : email,
 				password : hash,
-				nickname : nickname,
+				username : username,
 				friends : null,
 				photo: null
 			});
@@ -28,9 +28,9 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 				
 			  	req.session.user = newuser;
 			  	
-			  	fs.mkdir(path.join(process.env.PWD,'/uploads/' ,newuser.nickname));
+			  	fs.mkdir(path.join(process.env.PWD,'/uploads/' ,newuser.username));
 
-			  	res.redirect('/welcome');
+			  	return res.redirect('/welcome');
 			
 			});
 		});
@@ -50,7 +50,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			
 			var email = fields.email;
 			var password = fields.password;
-			
 			db.User.findOne({email: email}, function(error, user) {
 			  if (user)
 			  {
@@ -64,8 +63,8 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 			  } 
 			  else
 			  {
-			  	console.log(error);
-			  	return res.redirect('/?error=true')
+			  	req.session.error = true;
+			  	return res.redirect('/')
 			  } 
 			  
 		});
@@ -75,9 +74,20 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	});
 
 	server.get('/home',function (req, res){
-		db.User.findById(req.session.user._id, function (err, user) {
-			return res.render('home',{user: req.session.user});	
-		})
+		if (req.session.user)
+		{
+			db.User.findById(req.session.user._id, function (err, user) {
+				return res.render('home',{user: user});	
+
+			});
+		}
+		else
+		{
+			return res.render('home');	
+		}
+		
+		
+
 		
 	});
 
@@ -98,9 +108,9 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	           	file_ext = files.file.name.split('.').pop(),
 	           	index = old_path.lastIndexOf('/') + 1,
 	           	file_name = old_path.substr(index),
-	           	new_path = path.join(process.env.PWD, '/public/uploads/', req.session.user.nickname ,file_name + '.' + file_ext);
-
-	           	file_route = 'uploads/' + req.session.user.nickname + '/' + file_name + '.' + file_ext; 
+	           	new_path = path.join(process.env.PWD, '/public/uploads/', req.session.user.username ,file_name + '.' + file_ext);
+	           	
+	           	file_route = 'uploads/' + req.session.user.username + '/' + file_name + '.' + file_ext; 
 	        fs.readFile(old_path, function(err, data) {
 	        			
 	                    fs.writeFile(new_path, data, function(err) {
@@ -132,22 +142,22 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	server.io.route('check-user', function  (req) {
 		
 		var email = (req.data.email !== '')?req.data.email.trim():'default';
-		var nickname = (req.data.nickname !== '')?req.data.nickname.trim():'default';
+		var username = (req.data.username !== '')?req.data.username.trim():'default';
 		
-		if (nickname && email)
+		if (username && email)
 		{
 
-			db.User.findOne({nickname: nickname}, function (err, user) {
+			db.User.findOne({username: username}, function (err, user) {
 				if (user)
 				{
 					db.User.findOne({email: email}, function (err, user) {
 						if (user)
 						{
 							
-							return req.io.emit('user-exist', {email: 'Este email ya esta registrado',nickname: 'Este nickname ya pertenece a un usuario'});
+							return req.io.emit('user-exist', {email: 'Este email ya esta registrado',username: 'Este username ya pertenece a un usuario'});
 						}
 						
-						return req.io.emit('user-exist', {nickname: 'Este nickname ya esta registrado'});
+						return req.io.emit('user-exist', {username: 'Este username ya esta registrado'});
 
 					});	
 				}
@@ -184,7 +194,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	});
 
 	server.post('/target', function  (req, res) {
-		debugger;
 		console.log('entre');
 	});
 

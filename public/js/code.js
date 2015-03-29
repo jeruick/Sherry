@@ -1,4 +1,4 @@
-var user_error, sel_avatar = false;
+var user_error;
 var avatar_position;
 
 $(window).load(function() {
@@ -6,18 +6,6 @@ $(window).load(function() {
 });
 
 $(document).ready(function() {
-	$("#my-awesome-dropzone").dropzone({ 
-		url: "/upload-photo" ,
-		paramName: "file", // The name that will be used to transfer the file
-	  	maxFilesize: .5, // MB
-	  	maxFiles: 1,
-	  	uploadMultiple: false,
-	  	accept: function  (file, done) {
-	  		done();
-	  	}
-
-
-	});
 	window.io = io.connect();
 
 	io.on('connect', function  (socket) {
@@ -25,17 +13,22 @@ $(document).ready(function() {
 		io.emit('ready?');
 	});
 
+	io.on('ready', function (data){
+		console.log(data.mensaje);
+	});
+
 	io.on('user-exist', function  (data) {
 		var controller = false;
+		
 		if (data)
 		{
-			if (!data.nickname)
+			if (!data.username)
 			{
-				$('.nickname-error').html('');
+				$('.username-error').html('');
 			}
 			else
 			{
-				$('.nickname-error').html(data.nickname);
+				$('.username-error').html(data.username);
 				controller = true;
 			}
 			if (!data.email) 
@@ -51,7 +44,7 @@ $(document).ready(function() {
 		}
 		else
 		{
-			$('.nickname-error').html('');
+			$('.username-error').html('');
 			$('.email-error').html('');
 		}
 		user_error = controller;
@@ -59,12 +52,11 @@ $(document).ready(function() {
 		
 	})
 
-	$('#nickname, #email').on('keyup', function (event) {
+	$('#username, #email').on('keyup', function (event) {
 		
-		var nickname = $('#nickname').val();
+		var username = $('#username').val();
 		var email = $('#email').val();
-		console.log('entre');
-		io.emit('check-user', {nickname: nickname, email: email});
+		io.emit('check-user', {username: username, email: email});
 	});
 
 
@@ -105,27 +97,5 @@ $(document).ready(function() {
 							
 						});
 
-	$('.avatars li').on('click',function(event) {
-		event.preventDefault();
-		var self = this;
-		$('.avatars li i').each(function(index, el) {
-			$(el).removeClass('fa-check-circle');
-		});
-		$(self).children('i').addClass('fa-check-circle');
-		sel_avatar = true;
-		avatar_position = $(self).attr('class');
-	});
-
-	$('.next').click(function(event) {
-		if (!sel_avatar)
-		{
-			event.preventDefault();
-		}
-		else
-		{
-			var id = $('#user-id').val();
-			$(location).attr('href', '/avatar-selected/' + avatar_position);
-		}
-	});
 
 });

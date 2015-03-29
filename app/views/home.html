@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}{{user.name}}{% endblock title %}
+{% block title %}{% endblock title %}
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="css/home.css">
@@ -8,174 +8,102 @@
 {% endblock stylesheets %}	
 	
 {% block content %}
-	<nav class="navigation">
-		<div class="search-logo left">
-			<figure class="logo left">
-				<img src="" alt="logo">
-			</figure>
-			<div class="search">
-				<input type="text" class="right" placeholder="Busca tus amigos...">
-				<i class="el-icon-search-alt search-icon"></i>	
-			</div>
+
+
+	{% include "navigation.html" %} 
+	 
+	 	
+	 
+	<section class="down-header row">
+		<section class="profile-info col l3 m4 hide-on-small-only">
 			
-		</div>
-		<ul class=" tabs right">
-			<li class="actual">News</li>
-			<li>Messages</li>
-			<li>Chat</li>
-			<li>Groups</li>
-		</ul>
-	</nav>
-	<section class="down-header">
-		<section class="profile-info left">
-			
-			<img class="photo"  src="{{user.photo}}" >
-			<article>
-				<h3>{{user.name}}</h3>
-				<p>{{user.email}}</p>	
-			</article>
+			<div class="card">
+			   <div class="card-image waves-effect waves-block waves-light">
+			     <img class="activator" src="{{user.photo}}">
+			   </div>
+			   <div class="card-content">
+			     <span class="card-title activator grey-text text-darken-4">{{user.name}} <i class="mdi-navigation-more-vert right"></i></span>
+			     <p><a href="#">Ver perfil</a></p>
+			   </div>
+			   <div class="card-reveal">
+			     <span class="card-title grey-text text-darken-4">Card Title <i class="mdi-navigation-close right"></i></span>
+			     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+			   </div>
+			 </div>
 		</section>
-		
-		<div class="publish right">
-			<input type="text" class="publicar-text" placeholder="escribe algo genial...">
-			<button class="publish-button">Publicar <i class="fa fa-check"></i></button>
-			<article class="quote">
-				<p>
-				<i class="el-icon-quotes el-3x"></i>
-				<script src="http://www.brainyquote.com/link/quotebr.js"></script>
-				</p>
-			</article>
-		</div>	
+		<section class="col l8 m8">	
+			<div class="row">
+				<form class="publish-area ">
+				  <div class="row">
+				    <div class="input-field">
+				      <i class="mdi-editor-mode-edit prefix"></i>
+				      <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+				      <label for="icon_prefix2">¿Tienes algo que compartir?</label>
+				    </div>
+				  </div>
+				</form>				
+			</div>
+
+		  <section class="post-container row">
+		  	<div class="new col l12 m8 s12 ">
+		  		<div class="content left">
+		  			<div class="user-actions">
+		  				<a href="">{{user.username}}</a>
+		  			</div>
+		  			<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+		  			
+		  			<div class="options right card-action">
+		  				<a href="#" class="comments left"><i class="mdi-communication-comment"></i> <span>0</span></a>
+		  				<a href="#" class="love-it left"><i class="mdi-action-favorite-outline"> <span>3</span></i></a>
+		  				<a href="#" class="views left"><i class="mdi-action-visibility"></i> <span>7</span></a>
+		  				<p class="timesince">hace 3 dias</p>
+		  				
+		  			</div>
+		  		</div>
+
+		  	</div>
+		  	<div class="new col l12 m8 s12">
+		  		<div class="content left">
+		  			<div class="user-actions">
+		  				<a href="">{{user.username}}</a>
+		  			</div>
+		  			<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+		  			
+		  			<div class="options right card-action">
+		  				<a href="#" class="comments left"><i class="mdi-communication-comment"></i> <span>0</span></a>
+		  				<a href="#" class="love-it left"><i class="mdi-action-favorite-outline"> <span>3</span></i></a>
+		  				<a href="#" class="views left"><i class="mdi-action-visibility"></i> <span>7</span></a>
+		  				<p class="timesince">hace 3 dias</p>
+		  				
+		  			</div>
+		  		</div>
+
+		  	</div>
+		  	<div class="new col l12 m8 s12">
+		  		<div class="content left">
+		  			<div class="user-actions">
+		  				<a href="">{{user.username}}</a>
+		  			</div>
+		  			<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
+		  			
+		  			<div class="options right card-action">
+		  				<a href="#" class="comments left"><i class="mdi-communication-comment"></i> <span>0</span></a>
+		  				<a href="#" class="love-it left"><i class="mdi-action-favorite-outline"> <span>3</span></i></a>
+		  				<a href="#" class="views left"><i class="mdi-action-visibility"></i> <span>7</span></a>
+		  				<p class="timesince">hace 3 dias</p>
+		  				
+		  			</div>
+		  		</div>
+
+		  	</div>
+
+		  </section>
+
+		</section>
 	</section>
+
 	
-	<section class="container">
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
 
-		</div>
-		
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="text">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-		<div class="new">
-			<figure class="autor left">
-				<img src="images/loader-128x/Preloader_7.gif" alt="photo">
-			</figure>
-			<div class="content left">
-				<div class="user-actions">
-					<a href="">{{user.nickname}}</a>
-				</div>
-				<p class="description">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out.</p>
-				<p class="timesince">hace 3 dias</p>
-				<div class="options right">
-					<a href="#" class="comments left"><i class="el-icon-comment"></i></a>
-					<a href="#" class="like right"><i class="el-icon-thumbs-up"></i></a>
-					<a href="#" class="dislike right"><i class="el-icon-thumbs-down"></i></a>
-				</div>
-			</div>
-
-		</div>
-	</section>
+	
 {% endblock content %}
 	

@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chat
+{% endblock title %}
+
+{% block stylesheets %}
+    {% parent %}
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/home.css">
+{% endblock stylesheets %}
+
+{% block content %}
+    {% include "navigation.html" %}
+	
+    <div class="row chat-container">
+    	<div class="col l4 m4 hide-on-small-only connected">
+    		<ul class="collection">
+    		  <li class="collection-item avatar">
+    		    <img src="images/logo.png" alt="" class="circle">
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-file-folder circle"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-action-assessment circle green"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-av-play-arrow circle red"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <img src="images/logo.png" alt="" class="circle">
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-file-folder circle"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-action-assessment circle green"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		  <li class="collection-item avatar">
+    		    <i class="mdi-av-play-arrow circle red"></i>
+    		    <span class="title">Title</span>
+    		    <p>First Line <br>
+    		       Second Line
+    		    </p>
+    		    <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    		  </li>
+    		</ul>
+    		          
+    	</div>
+    	<div class="col l8 m8 s12 chat-panel">
+    		<div class="input-field writter">
+    		  <i class="mdi-editor-mode-edit prefix"></i>
+    		  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+    		  <label for="icon_prefix2">¿Tienes algo que compartir?</label>
+    		</div>
+    	</div>
+    </div>
+{% endblock content %}

@@ -15,29 +15,20 @@ header
 	overflow hidden
 	position relative
 	
-input[type=email]
-input[type=password]
-input[type=text]
-	border-top 1px solid #FFF
-	border-left 2px solid #DDD
-	border-right 2px solid #DDD
-	border-bottom 2px solid #DDD
-	display block
-	margin-bottom 1em
-	padding 1em
-	outline none
-	width 90%
 	
 	&:focus
 		border-bottom 2px solid azul_light
-		border-right 2px solid azul_light
-		border-left 2px solid azul_light
-		box-shadow 0 -1px 1px azul_light inset
+	
+.button-center
+	display block
+	margin 0 auto
+	width 20%
 	
 .body
-	background-color rgba(0, 0, 0,.7)
 	min-height 100vh
 	
+.borde 
+	border 2px solid red
 			
 .btn-registrate
 .btn-login
@@ -51,13 +42,9 @@ input[type=text]
 	padding 1em
 	text-decoration none
 	
-		
-.container
-	height 500px
-	margin-top 5em
 	
 .email-error
-.nickname-error
+.username-error
 	color red
 
 .background-error
@@ -80,26 +67,38 @@ input[type=text]
 		left 33%
 		text-align center
 		width 30%
-.login
-.registro
-	background white
-	border-radius 10px
-	margin 0 auto
-	padding 1.5em
-	width 35%
+		
+.form-container
+	position absolute
+	top 30%
+	width 100%
+	.login
+		background white
+		border-radius 10px
+		margin 0 auto
+		width 50%
+	.oauth
+		overflow hidden
+		a 
+			font-weight bold
+			padding 1em
+			text-decoration none
+			
+		
+	.registro
+		background white
+		border-radius 10px
+		margin 0 auto
+		padding 0 .5em
+		position relative
+		top -10em
+		width 50%
+		form 
+		
+			position relative
 	
 .login
 	position relative
-	button
-		background rosa
-		border 0
-		border-bottom 4px solid rosa_dark
-		display block
-		font-family 'Roboto'
-		font-size 20px
-		color white
-		margin 0 auto
-		padding 0.5em 1em
 		
 		&:active
 			margin-top 1em
@@ -125,10 +124,10 @@ input[type=text]
 	width 100%
 	z-index 9999
 	
-.red
+.red-color
 	color red
 
-.registro
+/*.registro
 	button 
 		background #2DC400
 		border 0
@@ -144,7 +143,7 @@ input[type=text]
 		
 		&:hover
 			background #2DCF00
-
+*/
 .ocultar
 	display none	
 
@@ -164,42 +163,34 @@ input[type=text]
 			opacity 0
 		15%
 			transform translateY(-200%)
-			padding-bottom 5px
+			
 		30%
 			transform translateY(-100%)
 		40%
 			transform translateY(-50%)
-			padding-bottom 6px
+			
 		50%
-			transform translateY(0%)
-		70%
-			transform translateY(40%)
-			padding-bottom 7px
-		80%
 			transform translateY(-30%)
+		70%
+			transform translateY(-10%)
+			
+		80%
+			transform translateY(0%)
 		90%
-			transform translateY(20%)
-			padding-bottom 8px
-		95%
-			transform translateY(-15%)
-		97%
-			transform translateY(10%)
-			padding-bottom 9px
-		99%
-			transform translateY(-5%)
+			transform translateY(-10%)
+			
 		100%
 			transform translateY(0%)
-			padding-bottom 9px
 			opacity 1
 			
 
 
 @media screen and (max-width 768px)
-		.login
-		.registro
-			width 80%
-		.container
-			height 400px
+		.form-container
+			
+			.login
+			.registro
+				width 80%
 		footer
 			.contactanos
 				font-size 14px
@@ -212,11 +203,11 @@ input[type=text]
 				
 
 @media screen and (max-width 480px)
-	.login
-	.registro
-		width 80%
-	.container
-		height 400px
+	.form-container
+		.login
+		.registro
+			width 90%
+			
 	footer
 		.contactanos
 			font-size 12px
