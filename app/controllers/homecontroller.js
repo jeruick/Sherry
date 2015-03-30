@@ -56,7 +56,8 @@ var homecontroller = function (server, passport){
 	});
 
 	server.get('/chat', function (req, res){
-		return res.render('chat', {user: req.session.user});
+		var user = (req.user != null) ? req.user : req.session.user;
+		return res.render('chat', {user: user});
 	});
 
 

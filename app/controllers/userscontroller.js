@@ -85,7 +85,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 	           	
 	           	file_route = 'uploads/' + req.session.user.username + '/' + file_name + '.' + file_ext; 
 	        fs.readFile(old_path, function(err, data) {
-	        			
 	                    fs.writeFile(new_path, data, function(err) {
 	                        fs.unlink(old_path, function(err) {
 	                            if (err) {
@@ -152,23 +151,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 		}
 	});
 
-	server.get('/avatar-selected/:image', function  (req, res) {
-		
-		db.User.findById(req.session.user._id,  function  (err, user) {
-			if (user) 
-			{
-				user.photo = req.params.image + '.jpg';
-				user.save();
-				req.session.user = user;
-				return res.redirect('/home');
-			}
-			
-		});
-	});
-
-	server.post('/target', function  (req, res) {
-		console.log('entre');
-	});
 
 }
 

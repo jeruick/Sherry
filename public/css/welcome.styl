@@ -11,42 +11,11 @@ body,html
 	perspective 1px
 	transform-style preserve-3d
 	overflow hidden
-			
-			
-.avatars
 	
-	background azul_dark
-	padding 5em
-	ul 
-		list-style none
-		margin 0 auto
-		position relative
-		width 65%
-		li 
-			display inline-block
-			position relative
-			i 
-				color verde
-				position absolute
-				top 0
-				left 0
-			img 
-				border-radius 50%
-				width 80%
-	
-		
-			
 .btn-next
-	color white
-	background verde
-	border 0
-	font-size 1.5em
-	padding .7em
 	position absolute
-	bottom 35%
-	right 5%
-	text-decoration none
-	
+	top 1em
+	right 2em
 		
 .left
 	float left
@@ -55,7 +24,7 @@ body,html
 	float right
 
 .welcome
-	background  url(/images/coloredpencils.jpg) no-repeat center center fixed 
+	background  url(/images/share.jpg) no-repeat center center fixed 
 	background-size cover
 	box-shadow inset 0 -7px 7px -7px rgba(0,0,0,0.7)
 	box-sizing border-box
@@ -73,7 +42,7 @@ body,html
 		.profile-photo
 			margin-top 5em
 			.dropzone
-				background rgba(0,0,0,.7) url(../images/upload.png) no-repeat 90% center
+				background rgba(0,0,0,.7) url(../images/upload.png) no-repeat 95% center
 				background-size 20%
 				border 2px dotted gray
 				color white
@@ -88,28 +57,23 @@ body,html
 			text-align center
 			text-shadow 0 5px 5px #555
 			
-		i 
-			cursor pointer
-			font-size 3em
-		
-@media screen and (max-width: 768px)
-	.avatars
-		.blue
-			ul 
-				padding 2em 0
-				li
-					margin 0 auto
-					
-		.pink
-			ul 
-				padding 2em 0
-				li
-					margin 0 auto
-					
-	.welcome
-		.layer
-			h1
-				font-size 3em
+			
+
+@media screen and (max-width 992px)
+	.welcome	
+		.layer 
 			.profile-photo
+				margin-top 5em
 				.dropzone
+					background rgba(0,0,0,.7) url(../images/upload.png) no-repeat 95% center
+					background-size 15%
 					width 100%
+			
+		
+			h1
+				font-size 2.5em
+				font-family 'Roboto'
+				text-transform capitalize
+				
+				
+			
