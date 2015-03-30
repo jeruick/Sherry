@@ -4,10 +4,10 @@
 	-o-box-sizing border-box 
 	box-sizing border-box 
 	/* adds animation for all transitions */ 
-	-webkit-transition .50s ease-in-out 
-	-moz-transition .50s ease-in-out 
-	-o-transition .50s ease-in-out 
-	transition .50s ease-in-out 
+	-webkit-transition .25s ease-in-out 
+	-moz-transition .25s ease-in-out 
+	-o-transition .25s ease-in-out 
+	transition .25s ease-in-out 
 	margin 0 
 	padding 0 
 	-webkit-text-size-adjust none 
@@ -75,6 +75,7 @@ html
 			.message-item
 				overflow hidden
 				margin 1em
+				z-index 1
 				.user-photo
 					height 50px
 					width 50px
@@ -127,10 +128,9 @@ html
 			left 0
 			right 0
 			height 100vh
+			
 			.messages
 				bottom -100px
-				
-					
 			.writter
 				background #333
 				color white
@@ -159,8 +159,10 @@ html
 		#drawer-toggle
 			&:checked ~ .connected
 				right: 50%
-			&:checked ~ #chat-panel
+			&:checked ~ .chat-panel
 				background rgba(0,0,0,.7)
+			&:checked ~ .chat-panel .message-item .message
+				background rgba(0,0,0,0)
 			
 
 		
