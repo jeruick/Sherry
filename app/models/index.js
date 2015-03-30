@@ -3,8 +3,8 @@ if (!global.hasOwnProperty('db')) {
  
   // the application is executed on the local machine ...
   
-  /*mongoose.connect('mongodb://jeruick:jeruick1991@ds031531.mongolab.com:31531/sherry');*/
- mongoose.connect('mongodb://localhost/sherry');
+  mongoose.connect('mongodb://jeruick:jeruick1991@ds031531.mongolab.com:31531/sherry');
+/* mongoose.connect('mongodb://localhost/sherry');*/
  
   global.db = {
  
