@@ -3,6 +3,7 @@ var express = require('express.io'),
  	swig = require('swig'),
  	formidable = require('formidable'),
 	fs = require('fs'),
+	passport = require('passport'),
 	bcrypt = require('bcrypt'),
 	session = require('express-session');
 
@@ -14,22 +15,20 @@ server.http().io();
 var homeController = require('./app/controllers/homecontroller');
 var usersController = require('./app/controllers/userscontroller');
 require('./app/models');
+require('./passport')(passport);
 
 /*settings*/
 server.engine('html', swig.renderFile);
 server.set('view engine', 'html' );
 server.set('views', __dirname + '/app/views');
 server.use(express.static('./public'));
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 
-server.use(session({
-	secret: 'ssshhh',
-	resave: false,
-	saveUninitialized: true
-}));
-
+server.use(session({secret: 'supernova', saveUninitialized: true, resave: true}));
+server.use(passport.initialize());
+server.use(passport.session());
 /*routes*/
-homeController(server);
+homeController(server, passport);
 usersController(server, formidable, bcrypt, fs, path);
 
 

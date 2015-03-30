@@ -12,11 +12,14 @@
 			</li>
 	        <li><a class="actual-tab" href="sass.html">Mensajes</a></li>
 	        <li><a href="/chat">Chat</a></li>
-	        <li><a href="">Intereses</a></li>
 	        <li><a href="">Video</a></li>
 	        <li><a href="">Perfil</a></li>
-	        <li class="hide-on-large-only hide-on-med-only"><a href="">Buscar</a></li>
+	        {% if user.provider_id %}
+	        <li><a href=""><img class="circle" src="{{user.photo}}" alt=""></a></li>
+			{% endif %}
 	      </ul>
 	    </div>
 	  </nav>
 	</div>
+
+	

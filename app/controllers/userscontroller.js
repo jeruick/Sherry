@@ -72,33 +72,6 @@ userscontroller = function  (server, formidable, bcrypt,fs, path) {
 		});
 		
 	});
-
-	server.get('/home',function (req, res){
-		if (req.session.user)
-		{
-			db.User.findById(req.session.user._id, function (err, user) {
-				return res.render('home',{user: user});	
-
-			});
-		}
-		else
-		{
-			return res.render('home');	
-		}
-		
-		
-
-		
-	});
-
-	function isLoggedIn (req, res, next) {
-		if (!req.session.user) 
-		{
-			return res.redirect('/');
-		}
-		next();
-	}
-
 	server.post('/upload-photo', function (req, res){
 		var file_route;
 		var form = new formidable.IncomingForm();

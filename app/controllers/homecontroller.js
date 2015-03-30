@@ -1,5 +1,5 @@
 
-var homecontroller = function (server){
+var homecontroller = function (server, passport){
 	console.log('homecontroller esta cargado');
 
 	server.get('/', function  (req, res) {
@@ -18,6 +18,39 @@ var homecontroller = function (server){
 		 return res.render('login.html');
 	});
 
+
+	server.get('/home',function (req, res){
+
+		if (req.session.user)
+		{
+			db.User.findById(req.session.user._id, function (err, user) {
+				return res.render('home',{user: user});	
+
+			});
+		}
+		else if (req.user)
+		{
+			db.User.findById(req.user._id, function (err, user) {
+				return res.render('home',{user: user});	
+
+			});	
+		}
+		else
+		{
+			return res.render('home');	
+		}
+		
+	});
+
+	function isLoggedIn (req, res, next) {
+		if (!req.session.user) 
+		{
+			return res.redirect('/');
+		}
+		next();
+	}
+
+
 	server.io.route('ready?', function  (req) {
 		req.io.emit('ready', {mensaje: 'i am ready'});
 	});
@@ -26,6 +59,18 @@ var homecontroller = function (server){
 		return res.render('chat', {user: req.session.user});
 	});
 
+
+	server.get('/auth/twitter', passport.authenticate('twitter'));
+	server.get('/twitter/callback',passport.authenticate('twitter', {
+		successRedirect: '/home',
+		failureRedirect: '/'
+	}));
+	server.get('/auth/facebook', passport.authenticate('facebook'));
+
+	server.get('/facebook/callback', passport.authenticate('facebook',{	       
+	     successRedirect:"/home",
+	     failureRedirect:"/"
+	 }));
 
 
 

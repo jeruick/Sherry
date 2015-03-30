@@ -19,10 +19,13 @@
   "dependencies": {
     "bcrypt": "^0.8.0",
     "express": "^4.10.6",
-    "express-session": "^1.9.3",
+    "express-session": "^1.10.4",
     "express.io": "^1.1.13",
     "formidable": "^1.0.16",
     "mongoose": "^3.8.21",
+    "passport": "^0.2.1",
+    "passport-facebook": "^2.0.0",
+    "passport-twitter": "^1.0.3",
     "socket.io": "^1.2.1",
     "swig": "^1.4.2"
   },
